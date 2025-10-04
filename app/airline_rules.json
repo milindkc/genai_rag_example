@@ -1,0 +1,23 @@
+[
+  {
+    "airline": "Emirates",
+    "class": "Economy",
+    "baggage_allowance": "25kg",
+    "cancellation_policy": "Refundable with fee",
+    "check_in_time": "3 hours before departure"
+  },
+  {
+    "airline": "Delta",
+    "class": "Business",
+    "baggage_allowance": "32kg",
+    "cancellation_policy": "Refundable",
+    "check_in_time": "2 hours before departure"
+  },
+  {
+    "airline": "IndiGo",
+    "class": "Economy",
+    "baggage_allowance": "15kg",
+    "cancellation_policy": "Non-refundable",
+    "check_in_time": "2 hours before departure"
+  }
+]
