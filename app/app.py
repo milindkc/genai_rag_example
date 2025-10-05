@@ -52,6 +52,8 @@ def build_vectorstore():
     splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     split_docs = splitter.split_documents(docs)
     logger.info(f"Split PDF into {len(split_docs)} chunks for embedding.")
+
+    # convert text to embeddings(vectors), this vectors are numerical representation of text which is stored in faiss vectorstore
     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
     vectorstore = FAISS.from_documents(split_docs, embeddings)
     logger.info("Vectorstore built successfully.")
@@ -89,17 +91,23 @@ def ask_rag_agent(question: str, info: dict, context: str):
     return answer
 
 # --- Streamlit UI ---
+# ...existing code...
 
-st.title("Air Travel Rules Agent (RAG)")
+def main():
+    """Main function to run the Streamlit RAG app."""
+    st.title("Air Travel Rules Agent (RAG)")
 
-user_question = st.text_input("Ask a question about airline rules:")
+    user_question = st.text_input("Ask a question about airline rules:")
 
-if user_question:
-    logger.info(f"User question: {user_question}")
-    # No airline info logic, only RAG
-    with st.spinner("Thinking..."):
-        vectorstore = build_vectorstore()
-        context = retrieve_context(user_question, vectorstore)
-        answer = ask_rag_agent(user_question, {}, context)
-    st.success(answer)
-    logger.info("Displayed answer to user.")
+    if user_question:
+        logger.info(f"User question: {user_question}")
+        # No airline info logic, only RAG
+        with st.spinner("Thinking..."):
+            vectorstore = build_vectorstore()
+            context = retrieve_context(user_question, vectorstore)
+            answer = ask_rag_agent(user_question, {}, context)
+        st.success(answer)
+        logger.info("Displayed answer to user.")
+
+if __name__ == "__main__":
+    main()
