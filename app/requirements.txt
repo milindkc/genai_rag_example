@@ -1,4 +1,9 @@
 langchain
+langchain-text-splitters
 uvicorn
 openai
 streamlit
+PyPDF2
+faiss-cpu
+python-dotenv
+tiktoken

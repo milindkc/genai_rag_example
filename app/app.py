@@ -7,8 +7,8 @@ import PyPDF2
 import logging
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.docstore.document import Document
+from langchain_text_splitters import CharacterTextSplitter
+from langchain_core.documents import Document
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

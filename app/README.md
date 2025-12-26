@@ -13,7 +13,7 @@ This project uses LangChain to build an agent that answers questions about air t
 1. Create a virtual environment (recommended):
    ```bash
    python3 -m venv rag_venv
-   source rag_venv/bin/activate
+   "C:/Users/deva rathod/Python_projects/genai_rag_example/rag_env/Scripts/Activate.ps1"
    ```
 2. Install dependencies:
    ```bash
